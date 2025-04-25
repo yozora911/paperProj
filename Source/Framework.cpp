@@ -7,11 +7,11 @@
 #include "System/Graphics.h"
 #include "System/ImGuiRenderer.h"
 #include "SceneGame.h"
+#include "SceneTitle.h"
+#include "SceneManager.h"
 
 // 垂直同期間隔設定
 static const int syncInterval = 1;
-
-static SceneGame sceneGame;
 
 // コンストラクタ
 Framework::Framework(HWND hWnd)
@@ -29,14 +29,14 @@ Framework::Framework(HWND hWnd)
 	ImGuiRenderer::Initialize(hWnd, Graphics::Instance().GetDevice(), Graphics::Instance().GetDeviceContext());
 
 	// シーン初期化
-	sceneGame.Initialize();
+	SceneManger::Instance().ChangeScene(new SceneTitle);
 }
 
 // デストラクタ
 Framework::~Framework()
 {
 	// シーン終了化
-	sceneGame.Finalize();
+	SceneManger::Instance().Clear();
 
 	// IMGUI終了化
 	ImGuiRenderer::Finalize();
@@ -54,7 +54,7 @@ void Framework::Update(float elapsedTime)
 	ImGuiRenderer::NewFrame();
 
 	// シーン更新処理
-	sceneGame.Update(elapsedTime);
+	SceneManger::Instance().Update(elapsedTime);
 }
 
 // 描画処理
@@ -69,10 +69,10 @@ void Framework::Render(float elapsedTime)
 	Graphics::Instance().SetRenderTargets();
 
 	// シーン描画処理
-	sceneGame.Render();
+	SceneManger::Instance().Render();
 
 	// シーンGUI描画処理
-	sceneGame.DrawGUI();
+	SceneManger::Instance().DrawGUI();
 
 #if 0
 	// IMGUIデモウインドウ描画（IMGUI機能テスト用）

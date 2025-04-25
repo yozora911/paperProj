@@ -4,16 +4,26 @@
 // 初期化
 void SceneGame::Initialize()
 {
+	//ステージ初期化
+	stage = new Stage();
 }
 
 // 終了化
 void SceneGame::Finalize()
 {
+	//ステージ終了化
+	if (stage != nullptr)
+	{
+		delete stage;
+		stage = nullptr;
+	}
 }
 
 // 更新処理
 void SceneGame::Update(float elapsedTime)
 {
+	//ステート更新処理
+	stage->Update(elapsedTime);
 }
 
 // 描画処理
@@ -54,7 +64,8 @@ void SceneGame::Render()
 
 	// 3Dモデル描画
 	{
-
+		//ステージ描画
+		stage->Render(rc, modelRenderer);
 	}
 
 	// 3Dデバッグ描画
