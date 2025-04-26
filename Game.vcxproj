@@ -121,6 +121,7 @@
     <ClInclude Include="External\imgui-docking\imstb_truetype.h" />
     <ClInclude Include="Source\Map.h" />
     <ClInclude Include="Source\Normal_Tile.h" />
+    <ClInclude Include="Source\SceneSelect.h" />
     <ClInclude Include="Source\Tile.h" />
     <ClInclude Include="Source\TileManager.h" />
     <ClInclude Include="Source\Camera.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="Source\Normal_Tile.cpp" />
     <ClCompile Include="Source\SceneGame.cpp" />
     <ClCompile Include="Source\SceneManager.cpp" />
+    <ClCompile Include="Source\SceneSelect.cpp" />
     <ClCompile Include="Source\SceneTitle.cpp" />
     <ClCompile Include="Source\Stage.cpp" />
     <ClCompile Include="Source\System\Audio.cpp" />

@@ -1,20 +1,18 @@
-#include "System/Graphics.h"
-#include "SceneTitle.h"
-#include "System/Input.h"
-#include "SceneGame.h"
-#include "SceneManager.h"
 #include "SceneSelect.h"
-
+#include "System/Graphics.h"
+#include "System/Input.h"
+#include "SceneManager.h"
+#include "SceneGame.h"
 
 //初期化
-void SceneTitle::Initialize()
+void SceneSelect::Initialize()
 {
 	//スプライト初期化
-	sprite = new Sprite("Data/Sprite/Title.png");
+	sprite = new Sprite("Data/Sprite/Select.jpg");
 }
 
 //終了化
-void SceneTitle::Finalize()
+void SceneSelect::Finalize()
 {
 	//スプライト終了化
 	if (sprite != nullptr)
@@ -24,8 +22,9 @@ void SceneTitle::Finalize()
 		sprite = nullptr;
 	}
 }
+
 //更新処理
-void SceneTitle::Update(float elapsedTime)
+void SceneSelect::Update(float elapsedTime)
 {
 	GamePad& gamePad = Input::Instance().GetGamePad();
 
@@ -39,12 +38,13 @@ void SceneTitle::Update(float elapsedTime)
 
 	if (gamePad.GetButtonDown() & anyButton)
 	{
-		SceneManger::Instance().ChangeScene(new SceneSelect);
+		SceneManger::Instance().ChangeScene(new SceneGame);
 	}
+
 }
 
 //描画処理
-void SceneTitle::Render()
+void SceneSelect::Render()
 {
 	Graphics& graphics = Graphics::Instance();
 	ID3D11DeviceContext* dc = graphics.GetDeviceContext();
@@ -70,6 +70,6 @@ void SceneTitle::Render()
 }
 
 //GUI描画
-void SceneTitle::DrawGUI()
+void SceneSelect::DrawGUI()
 {
 }

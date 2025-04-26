@@ -150,6 +150,7 @@
     <ClInclude Include="Source\Map.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Source\SceneSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="External\imgui-docking\imgui.cpp">
@@ -255,6 +256,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\MapManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneSelect.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
