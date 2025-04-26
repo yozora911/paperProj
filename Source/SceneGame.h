@@ -2,7 +2,7 @@
 
 #include "Stage.h"
 #include "Scene.h"
-
+#include"CameraController.h"
 // ÉQÅ[ÉÄÉVÅ[Éì
 class SceneGame : public Scene
 {
@@ -26,4 +26,5 @@ public:
 	void DrawGUI()override;
 private:
 	Stage* stage = nullptr;
+	CameraController* cameraController = nullptr;
 };
