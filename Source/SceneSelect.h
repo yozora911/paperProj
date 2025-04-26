@@ -26,5 +26,5 @@ public:
 	void DrawGUI() override;
 
 private:
-	Sprite* sprite = nullptr;
+	Sprite* select = nullptr;
 };

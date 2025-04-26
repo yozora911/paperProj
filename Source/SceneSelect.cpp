@@ -8,18 +8,18 @@
 void SceneSelect::Initialize()
 {
 	//スプライト初期化
-	sprite = new Sprite("Data/Sprite/Select.jpg");
+	select = new Sprite("Data/Sprite/Select.jpg");
 }
 
 //終了化
 void SceneSelect::Finalize()
 {
 	//スプライト終了化
-	if (sprite != nullptr)
+	if (select != nullptr)
 	{
 
-		delete sprite;
-		sprite = nullptr;
+		delete select;
+		select = nullptr;
 	}
 }
 
@@ -62,7 +62,7 @@ void SceneSelect::Render()
 		//タイトル描画
 		float screenWidth = static_cast<float>(graphics.GetScreenWidth());
 		float screenHeight = static_cast<float>(graphics.GetScreenHeight());
-		sprite->Render(rc,
+		select->Render(rc,
 			0, 0, 0, screenWidth, screenHeight,
 			0,
 			1, 1, 1, 1);
